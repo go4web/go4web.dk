@@ -5,13 +5,16 @@
 @import "settings";
 @import "foundation.scss";
 
+.row {
+	max-width: none;
+}
+
 // Custom mixins
 @import "mixins";
 
 // Page components
 @import "partials/navigation";
-@import "partials/list-items";
-@import "partials/header-buttons";
+//@import "partials/list-items";
 @import "partials/icons";
 
 // Plugins 

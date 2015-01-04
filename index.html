@@ -9,21 +9,25 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
-    <title>Boilerplate</title>
+    <title>Go4web</title>
     <link rel="stylesheet" href="css/app.css" />
-    <script src="/scripts/vendor/modernizr.min.js"></script>
+    <script src="scripts/vendor/modernizr.min.js"></script>
   </head>
 
   <body>
     <div id="site-wrapper">
         <div id="site-canvas">
+
+
             <header>
-                <ul class="header-buttons">
-                    <li><a class="search-trigger" href="#">Search<span></span></a></li>
-                    <li><a class="nav-trigger" href="#">Menu<span></span></a></li>
-                </ul>
+                <a class="nav-trigger" href="#" title="Menu">Menu<span></span></a>
+
+                <img src="images/name.svg" alt="Kim Rasmussen - Frontendudvikler" class="name" />
 
                 <div class="main-navigation" id="site-menu">
+
+                    <img src="images/logo.svg" alt="Go4web" />
+
                     <nav>
                         <ul>
                             <li><a href="#" title="">Nav item 1</a></li>
@@ -42,35 +46,70 @@
                             <li><a href="#" title="">Nav item 5</a></li>
                         </ul>
                     </nav>
+
+
+
+                    <div class="social">
+                        <ul>
+                            <li>
+                                <div class="flip">
+                                    <a href="http://facebook.com/carmenevansphotography" target="_blank">
+                                    <div class="front">
+                                        <img class="static" src="http://lovecarmenrose.com/wp-content/themes/LoveCarmenRose/img/navigation/social/facebook_black.svg" alt="Facebook" width="38" height="38">
+                                    </div>
+                                    <div class="back">
+                                        <img class="" src="http://lovecarmenrose.com/wp-content/themes/LoveCarmenRose/img/navigation/social/facebook_hover.svg" alt="Facebook" width="38" height="38">
+                                    </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flip">
+                                    <a href="http://instagram.com/carmenevans" target="_blank">
+                                    <div class="front">
+                                        <img class="static" src="http://lovecarmenrose.com/wp-content/themes/LoveCarmenRose/img/navigation/social/instagram_black.svg" alt="Instagram" width="38" height="38">
+                                    </div>
+                                    <div class="back">
+                                        <img class="" src="http://lovecarmenrose.com/wp-content/themes/LoveCarmenRose/img/navigation/social/instagram_hover.svg" alt="Instagram" width="38" height="38">
+                                    </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flip">
+                                    <a href="http://twitter.com/share?text=Check%20out%20Carmen%27s%20adorable%20new%20website%21%20&amp;url=http://www.lovecarmenrose.com" target="_blank">
+                                    <div class="front">
+                                        <img class="static" src="http://lovecarmenrose.com/wp-content/themes/LoveCarmenRose/img/navigation/social/twitter_black.svg" alt="Twitter" width="38" height="38">
+                                    </div>
+                                    <div class="back">
+                                        <img class="" src="http://lovecarmenrose.com/wp-content/themes/LoveCarmenRose/img/navigation/social/twitter_hover.svg" alt="Twitter" width="38" height="38">
+                                    </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </header>
 
             <main>  
-                <div class="row">
-                    <article class="small-12 medium-8 large-9 columns">
-
-                        <ul class="list-items">
-                            <li>List item 1</li>
-                            <li>List item 2</li>
-                            <li>List item 3</li>
-                        </ul>
-
-                        <ul class="default">
-                            <li>List item 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-                            <li>List item 2</li>
-                            <li>List item 3</li>
-                        </ul>        
-
+                    <article class="small-12 medium-8 large-7 columns">
+                            7
                     </article> 
-                    <aside class="small-12 medium-4 large-3 columns">
-                        <svg class="icon"><use xlink:href="/svgsprite.svg#icon-search"></svg>
-                    </aside>       
-                </div>
+
+                    <article class="small-12 medium-4 large-3 columns">
+                            3
+                    </article> 
+                    <article class="small-12 medium-6 large-2 columns">
+                            4
+                    </article> 
+                    <article class="small-12 medium-3 large-4 columns">
+                            4
+                    </article> 
+                    <article class="small-12 medium-3 large-4 columns">
+                            4
+                    </article> 
+                                                                                                    
             </main>
 
             <footer>
@@ -78,19 +117,9 @@
             </footer>
         </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script>(window.jQuery) || document.write('<script src="/scripts/vendor/jquery.min.js"><\/script>')</script>
-    <script src="/scripts/app.min.js"></script>
+    <script src="scripts/app.min.js"></script>
 
-    <!-- @*-- Google Analytics --*@
-    <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create', '@settingsnode.GetPropertyValue("googleAnalyticsId")'); ga('send', 'pageview');
-    </script>
-    -->
   </body>
 </html>

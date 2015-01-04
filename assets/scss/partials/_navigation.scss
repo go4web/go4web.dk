@@ -3,75 +3,218 @@ nav ul {
 	margin: 0;
 }
 
+body {
+	overflow-x: hidden; 
+}
 
-@media #{$small-only} {
+#site-wrapper {
+  position: relative;
+  width: 100%;
+}
+#site-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
 
-	body {
-		overflow-x: hidden; 
-	}
+  @include transform(translateX(0));
+  @include transform(translate3d(0, 0, 0));
+  @include transition(all 300ms ease-out);
 
-	#site-wrapper {
-	  position: relative;
-	  width: 100%;
-	}
-	#site-canvas {
-	  width: 100%;
-	  height: 100%;
-	  position: relative;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 
-	  @include transform(translateX(0));
-	  @include transform(translate3d(0, 0, 0));
-	  @include transition(all 300ms ease-out);
 
-	  -webkit-backface-visibility: hidden;
-	  backface-visibility: hidden;
-	}
-	.nav-is-visible #site-canvas {
-		@include transform(translateX(-265px));
-		@include transform(translate3d(-265px, 0, 0));
-	}
+.name {display: none;}
 
-	#site-menu {
-	  width: 265px;
-	  height: 100vh;
-	  position: absolute;
-	  z-index: 15;
-	  top: 0;
-	  right: -265px;
-	  background: charcoal;
-	  border-right: 1px solid $charcoal;
-	  padding: rem-calc(15);
-	}
 
-	#dimm {
-		display: none;
-		opacity: 0;
-	    position: fixed;
-	    top: 0;
-	    left: 0;
+header {
+
+	.social {
+		position: absolute;
+		bottom: 20px;
+		left: 0;
+		color: #fff;
 	    width: 100%;
-	    height: 100vh;
-	    z-index: 10;
-	    @include transition(opacity .2s ease);
-	    .rgba & {
-	        background-color: rgba(0,0,0,0.7);
-	    }
-	    .no-rgba & {
-	        background-color: #333;
-	    }
 
-	    .nav-is-visible & {
-	    	display: block;
-	    	opacity: 1;
-	    }
+		ul {
+	    	margin: 0;
+	    	text-align: center;
+		
+			li {
+			    position: relative;
+			    perspective: 1000;
+			    display: inline-block;
+			    width: 2.375rem;
+			    height: 2.375rem;
+			    margin-right: .125rem;
+			    cursor: pointer;
+			
+				&:last-child {
+		    		margin-right: 0;
+				}
+
+				.front, .back {
+					width: 2.375rem;
+				    height: 2.375rem;
+				}
+
+				.flip {
+					position: relative;
+					-webkit-transition: .6s;
+					-moz-transition: .6s;
+					-ms-transition: .6s;
+					-o-transition: .6s;
+					transition: .6s;
+					-webkit-transform-style: preserve-3d;
+					-moz-transform-style: preserve-3d;
+					-ms-transform-style: preserve-3d;
+					-o-transform-style: preserve-3d;
+					transform-style: preserve-3d;
+
+					.front, .back {
+						position: absolute;
+						top: 0;
+						left: 0;
+						-webkit-backface-visibility: hidden;
+						-moz-backface-visibility: hidden;
+						-ms-backface-visibility: hidden;
+						-o-backface-visibility: hidden;
+						backface-visibility: hidden;
+					}
+
+					.front {
+    					z-index: 2;
+					}
+
+					.back {
+    					@include transform(rotateY(180deg));
+					}
+				}
+
+			}
+
+			li:hover .flip, li.hover .flip {
+				@include transform(rotateY(180deg));
+			}
+
+		}
+	}
+
+	@media #{$medium-only} {
+		.name {
+			display: block;
+			position: absolute;
+			bottom: 20px;
+			right: 18px;
+			width: 14px;
+		}
 	}
 }
 
 
+@media #{$small-only} {
+	#site-menu {
+		width: 265px;
+		height: 100vh;
+		position: absolute;
+		z-index: 15;
+		top: 0;
+		right: -270px;
+		background: $white;
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 10px;
+			height: 100vh;
+			left: -5px;
+			top: 0;
+			background: url(../images/nav.png) repeat-y left;
+		}
+	}
+
+
+
+	.nav-is-visible #site-canvas {
+		@include transform(translateX(-270px));
+		@include transform(translate3d(-270px, 0, 0));
+	}
+
+}
+
+@media #{$medium-only} {
+	#site-menu {
+		width: 265px;
+		height: 100vh;
+		position: absolute;
+		z-index: 15;
+		top: 0;
+		left: -265px;
+		background: $white;
+	}
+
+	.nav-is-visible #site-canvas {
+		@include transform(translateX(265px));
+		@include transform(translate3d(265px, 0, 0));
+	}
+
+	header {
+		width: 50px;
+		height: 100vh;
+		float: left;
+		background: $white;
+		position: relative;
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 10px;
+			height: 100vh;
+			right: -5px;
+			top: 0;
+			background: url(../images/nav.png) repeat-y right;
+		}
+	}
+
+	main {
+		padding-left: 50px;
+	}
+}
+
+@media #{$large-up} {
+	#site-menu {
+		width: auto;
+	
+	}
+
+	header {
+		@include grid-column(2);
+		height: 100vh;
+		background: #fff;
+		position: relative;
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 10px;
+			height: 100vh;
+			right: -5px;
+			top: 0;
+			background: url(../images/nav.png) repeat-y right;
+		}
+	}
+
+
+}
+
 .main-navigation {
 	@include clearfix();
 
-	@media #{$small-only} {
+	@media #{$small-up} {
 		nav {
 			> ul {
 				font-size: rem-calc(16);
@@ -110,156 +253,134 @@ nav ul {
 		}
 	}
 
-	@media #{$medium-up} {
-		&.has-subnavigation {
-			margin-bottom: 33px; // Height of subnavigation
-		}
-
-		border-bottom: 1px solid $primary-color;
-		position: relative;
-
+	@media #{$large-up} {
 		nav {
-			@include grid-row();
-			padding-left: $column-gutter/2;
-			padding-right: $column-gutter/2;
-		
 			> ul {
-				padding-top: 2px;
-				padding-bottom: 2px;
+				font-size: rem-calc(16);
 
-				@include clearfix();
-			
+				// Level 1
 				> li {
-					display: inline-block;
-					float: left;
-					border-left: 1px solid darken($charcoal, 1%); 
-					font-size: rem-calc(16);
-
-					> a {
-						border-left: 1px solid $vapor;
-						display: inline-block;
-						float: left;
-						color: $charcoal;
-						padding: rem-calc(5) rem-calc(10);
-
-						@include transition(color 0.2s ease-in-out);
-					}
-
-					&:first-child {
-						border-left: none;
-						> a {
-							border-left: none; 
-							margin-left: rem-calc(-10);
-						}
-					}
-
-					&.active > a {
-						position: relative;
-
-					 	&:before, &:after {
-							bottom: -3px;	// To align with padding on ul
-							left: 50%;
-							border: solid transparent;
-							content: " ";
-							height: 0;
-							width: 0;
-							position: absolute;
-							pointer-events: none;
-						}
-
-						// Stroke 
-						&:before {
-							border-color: transparent;
-							border-bottom-color: #ededed;
-							border-width: 6px;
-							margin-left: -6px;
-						}
-
-						// Fill
-						&:after {
-							border-color: transparent;
-							border-bottom-color: $white;
-							border-width: 5px;
-							margin-left: -5px;
-						}
-					}
-				}
-			}
-
-		.has-submenu {
-			display: block;
-			position: absolute;
-			top: 100%;
-			left: 0;
-			width: 100%;
-			margin-top: 2px;
-			border-bottom: 1px solid $charcoal;
-
-			background: #fafafa;
-
-			@include clearfix();
-		}
-
-		// Subnavigation 
-			ul ul {
-				position: relative;
-
-				@include grid-row();
-				padding-left: $column-gutter/2;
-				padding-right: $column-gutter/2;
-
-				li {
-					display: inline-block;
-					float: left;
-					font-size: rem-calc(13);
-
-					margin-right: rem-calc(10);
-
-					a {
-						display: inline-block;
-						float: left;
-						color: $charcoal;
-						padding: rem-calc(5) 0;
-
-						@include transition(color 0.2s ease-in-out);
-
-						&:hover {
-							color: darken($charcoal, 10%);
-						}
-					}
+					border-bottom: 1px solid $charcoal;
+				
+					&:first-child a {border-top: none;}
 					&.active > a {
 						color: darken($charcoal, 10%);
-						position: relative;
+					}
+					a {
+						border-top: 1px solid $vapor;
+						display: block;
+						color: $charcoal;
+						padding: rem-calc(5) 0;
+					}					
 
-					    &:before, &:after {
-							bottom: -1px;		// To align with padding on ul
-							left: 50%;
-							border: solid transparent;
-							content: " ";
-							height: 0;
-							width: 0;
-							position: absolute;
-							pointer-events: none;
+					// Level 2
+					ul {
+						padding-bottom: rem-calc(10);
+						margin-left: rem-calc(15);
+
+						a {
+							border: none;
 						}
-
-						// Stroke 
-						&:before {
-							border-color: transparent;
-							border-bottom-color: #ededed;
-							border-width: 6px;
-							margin-left: -6px;
-						}
-
-						// Fill
-						&:after {
-							border-color: transparent;
-							border-bottom-color: $white;
-							border-width: 5px;
-							margin-left: -5px;
+						li {
+							&.active a {
+								color: darken($charcoal, 10%);
+							}							
 						}
 					}
 				}
 			}
+		}
+	}	
+
+	
+}
+
+
+
+.nav-trigger {
+
+	@media #{$small-only} {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	position: relative;
+	display: block;
+	width: 44px;
+	height: 44px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-indent: 100%;
+	color: transparent;
+	z-index: 20;
+
+	&:hover, &:active {
+		color: transparent;
+	}
+
+	@media #{$large-up} {
+		display: none;
+	}
+
+
+	span, span::before, span::after {
+		// hamburger icon in CSS
+		position: absolute;
+		display: inline-block;
+		height: 3px;
+		width: 24px;
+		background: #000;
+	}
+
+	span {
+		// line in the center
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		margin-top: -2px;
+		@include transition(background .3s ease);
+	}
+
+	span::before, span::after {
+		// other 2 lines
+		content: '';
+		right: 0;
+		/* Force Hardware Acceleration in WebKit */
+		@include transform(translateZ(0));
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		@include transform-origin(0% 50%);
+		@include transition(transform .3s ease);
+	}
+
+	span::before {
+		// menu icon top line
+		top: -6px;
+	}
+
+	span::after {
+		// menu icon bottom line
+		top: 6px;
+	}
+
+	&.nav-is-visible {
+		span {
+			// hide line in the center
+			background: rgba(#000, 0);
+		}
+
+		span::before, span::after {
+			/* keep visible other 2 lines */
+			background: rgba(#000, 1);
+		}
+
+		span::before {
+			@include transform(translateX(4px) translateY(-3px) rotate(45deg));
+		}
+
+		span::after {
+			@include transform(translateX(4px) translateY(2px) rotate(-45deg));
 		}
 	}
 }
