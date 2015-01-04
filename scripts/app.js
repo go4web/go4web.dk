@@ -1,4 +1,4 @@
-/* Boilerplate-Web - v1.0.0 - 2014-11-13 11:40 */
+/* Boilerplate-Web - v1.0.0 - 2015-01-04 12:19 */
 /*
  * Foundation Responsive Library
  * http://foundation.zurb.com
@@ -279,7 +279,7 @@
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.4.6',
+    version : '5.4.7',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -631,7 +631,7 @@
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.4.6',
+    version : '5.4.7',
 
     cache : {},
 
@@ -976,7 +976,7 @@
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.4.6',
+    version : '5.4.7',
 
     settings : {
       content_class: 'content',
@@ -1043,7 +1043,7 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.4.6',
+    version : '5.4.7',
 
     settings : {
       live_validate : true,
@@ -1358,7 +1358,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.4.6',
+    version : '5.4.7',
 
     settings : {
       additional_inheritable_classes : [],
