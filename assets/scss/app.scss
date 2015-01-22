@@ -1,20 +1,19 @@
 // Normalize
-@import "normalize";
+@import "core/normalize";
 
 // Foundation
-@import "settings";
-@import "foundation.scss";
+@import "core/settings";
+@import "core/foundation.scss";
 
 .row {
 	max-width: none;
 }
 
 // Custom mixins
-@import "mixins";
+@import "shared/mixins";
 
 // Page components
-@import "partials/navigation";
-//@import "partials/list-items";
-@import "partials/icons";
+@import "modules/navigation";
+@import "modules/icons";
 
 // Plugins 

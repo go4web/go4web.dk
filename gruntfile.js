@@ -1,9 +1,9 @@
 ﻿module.exports = function(grunt) {
     grunt.initConfig({
         sourceJsDir: 'assets/scripts',
-        webJsDir: 'scripts',
+        webJsDir: 'public/scripts',
         sourceCssDir: 'assets/scss',
-        webCssDir: 'css',
+        webCssDir: 'public/css',
         pkg: grunt.file.readJSON('package.json'),
 
         watch: {
@@ -51,9 +51,6 @@
                 src: [
                     '<%= sourceJsDir %>/foundation/foundation.js',
                     '<%= sourceJsDir %>/foundation/foundation.interchange.js',
-                    '<%= sourceJsDir %>/foundation/foundation.accordion.js',
-                    '<%= sourceJsDir %>/foundation/foundation.abide.js',
-                    '<%= sourceJsDir %>/foundation/foundation.tooltip.js',
                     '<%= sourceJsDir %>/vendor/jquery.cookie.js',
                     '<%= sourceJsDir %>/vendor/svg4everybody.js',
                     '<%= sourceJsDir %>/app.js'
