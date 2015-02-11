@@ -15,7 +15,7 @@ header {
 	position: relative;
 	z-index: 35;
 	background: #000;
-	
+
 	@media #{$small-only} {
 		height: 80px;
 	}
@@ -74,10 +74,13 @@ nav {
 	color: transparent;
 	z-index: 20;
 
-	@include center(x);
+	background: #aaa;
+
+	@include center();
 
 	&:hover, &:active {
 		color: transparent;
+		background: #bbb;
 	}
 
 	span, span::before, span::after {

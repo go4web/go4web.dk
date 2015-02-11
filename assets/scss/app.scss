@@ -12,9 +12,10 @@
 // Custom mixins
 @import "shared/mixins";
 
-// Page components
+// Page modules
 @import "modules/header";
 
-@import "modules/icons";
+// Page shared
+@import "shared/icons";
 
 // Plugins 
