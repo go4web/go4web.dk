@@ -1,0 +1,141 @@
+header {
+
+	@media #{$small-only} {
+		width: 100%;
+		height: 80px;
+	}
+
+	@media #{$medium-up} {
+		width: 80px;
+		height: 100vh;
+	}
+}
+
+.nav-bar {
+	position: relative;
+	z-index: 35;
+	background: #000;
+	
+	@media #{$small-only} {
+		height: 80px;
+	}
+	@media #{$medium-up} {
+		height: 100vh;
+	}
+}
+
+.nav-menu {
+	opacity: 0;
+	visibility: hidden;
+	@include transition(opacity, 0.3s, ease);
+  	@include transform(translateX(0));
+  	@include transform(translate3d(0, 0, 0));
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	overflow-x: hidden;
+
+	z-index: 10;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+
+	@media #{$small-only} {
+		background: #eee;
+	}
+
+	@media #{$medium-up} {
+		background: #ccc;
+	}
+
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+nav {
+	margin: 0;
+	padding: 0;
+}
+
+
+.nav-trigger {
+
+	position: relative;
+	display: block;
+	width: 44px;
+	height: 44px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-indent: 100%;
+	color: transparent;
+	z-index: 20;
+
+	@include center(x);
+
+	&:hover, &:active {
+		color: transparent;
+	}
+
+	span, span::before, span::after {
+		// hamburger icon in CSS
+		position: absolute;
+		display: inline-block;
+		height: 3px;
+		width: 24px;
+		background: #fff;
+	}
+
+	span {
+		// line in the center
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		margin-top: -2px;
+		@include transition(background .3s ease);
+	}
+
+	span::before, span::after {
+		// other 2 lines
+		content: '';
+		right: 0;
+		/* Force Hardware Acceleration in WebKit */
+		@include transform(translateZ(0));
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		@include transform-origin(0% 50%);
+		@include transition(transform .3s ease);
+	}
+
+	span::before {
+		// menu icon top line
+		top: -6px;
+	}
+
+	span::after {
+		// menu icon bottom line
+		top: 6px;
+	}
+
+	&.nav-is-visible {
+		span {
+			background: rgba(#fff, 0);
+		}
+
+		span::before, span::after {
+			/* keep visible other 2 lines */
+			background: rgba(#fff, 1);
+		}
+
+		span::before {
+			@include transform(translateX(4px) translateY(-3px) rotate(45deg));
+		}
+
+		span::after {
+			@include transform(translateX(4px) translateY(2px) rotate(-45deg));
+		}
+	}
+}
