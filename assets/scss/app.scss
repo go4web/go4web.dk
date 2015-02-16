@@ -5,15 +5,12 @@
 @import "core/settings";
 @import "core/foundation.scss";
 
-.row {
-	max-width: none;
-}
-
 // Custom mixins
 @import "shared/mixins";
 
 // Page modules
 @import "modules/header";
+//@import "modules/navigation";
 
 // Page shared
 @import "shared/icons";

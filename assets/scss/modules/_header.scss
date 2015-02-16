@@ -61,27 +61,29 @@ nav {
 	padding: 0;
 }
 
-
-.nav-trigger {
-
+.navigation-trigger {
+	width: 100%;
+	height: 50px;
+	border: none;
+	padding: 0;
 	position: relative;
-	display: block;
-	width: 44px;
-	height: 44px;
-	overflow: hidden;
-	white-space: nowrap;
-	text-indent: 100%;
-	color: transparent;
-	z-index: 20;
 
-	background: #aaa;
+	@include transition(background-color, 0.3s, ease);
 
-	@include center();
-
-	&:hover, &:active {
-		color: transparent;
-		background: #bbb;
+	&:hover {
+		background-color: #333;
 	}
+
+	&:focus {
+		outline: none;
+	}
+	
+	> div {
+		margin: 0 auto;
+		width: 24px;
+		position: relative;
+	}
+	
 
 	span, span::before, span::after {
 		// hamburger icon in CSS
@@ -89,14 +91,14 @@ nav {
 		display: inline-block;
 		height: 3px;
 		width: 24px;
-		background: #fff;
+		background: #000;
 	}
 
 	span {
 		// line in the center
 		position: absolute;
 		top: 50%;
-		right: 10px;
+		right: 0;
 		margin-top: -2px;
 		@include transition(background .3s ease);
 	}
@@ -125,12 +127,13 @@ nav {
 
 	&.nav-is-visible {
 		span {
-			background: rgba(#fff, 0);
+			// hide line in the center
+			background: rgba(#000, 0);
 		}
 
 		span::before, span::after {
 			/* keep visible other 2 lines */
-			background: rgba(#fff, 1);
+			background: rgba(#000, 1);
 		}
 
 		span::before {
@@ -141,4 +144,5 @@ nav {
 			@include transform(translateX(4px) translateY(2px) rotate(-45deg));
 		}
 	}
+
 }

@@ -384,3 +384,73 @@ header {
 		}
 	}
 }
+
+
+.navigation-trigger {
+	width: 100%;
+	height: 50px;
+	border: none;
+	padding: 0;
+
+	
+	span, span::before, span::after {
+		// hamburger icon in CSS
+		position: absolute;
+		display: inline-block;
+		height: 3px;
+		width: 24px;
+		background: #000;
+	}
+
+	span {
+		// line in the center
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		margin-top: -2px;
+		@include transition(background .3s ease);
+	}
+
+	span::before, span::after {
+		// other 2 lines
+		content: '';
+		right: 0;
+		/* Force Hardware Acceleration in WebKit */
+		@include transform(translateZ(0));
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		@include transform-origin(0% 50%);
+		@include transition(transform .3s ease);
+	}
+
+	span::before {
+		// menu icon top line
+		top: -6px;
+	}
+
+	span::after {
+		// menu icon bottom line
+		top: 6px;
+	}
+
+	&.nav-is-visible {
+		span {
+			// hide line in the center
+			background: rgba(#000, 0);
+		}
+
+		span::before, span::after {
+			/* keep visible other 2 lines */
+			background: rgba(#000, 1);
+		}
+
+		span::before {
+			@include transform(translateX(4px) translateY(-3px) rotate(45deg));
+		}
+
+		span::after {
+			@include transform(translateX(4px) translateY(2px) rotate(-45deg));
+		}
+	}
+
+}

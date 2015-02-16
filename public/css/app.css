@@ -1446,9 +1446,6 @@ select {
     .large-block-grid-12 > li:nth-of-type(12n+1) {
       clear: both; } }
 
-.row {
-  max-width: none; }
-
 @media only screen and (max-width: 40em) {
   header {
     width: 100%;
@@ -1511,46 +1508,42 @@ nav {
   margin: 0;
   padding: 0; }
 
-.nav-trigger {
+.navigation-trigger {
+  width: 100%;
+  height: 50px;
+  border: none;
+  padding: 0;
   position: relative;
-  display: block;
-  width: 44px;
-  height: 44px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-indent: 100%;
-  color: transparent;
-  z-index: 20;
-  background: #aaa;
-  left: 50%;
-  top: 50%;
-  bottom: auto;
-  right: auto;
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%); }
-  .nav-trigger:hover, .nav-trigger:active {
-    color: transparent;
-    background: #bbb; }
-  .nav-trigger span, .nav-trigger span::before, .nav-trigger span::after {
+  -webkit-transition: background-color, 0.3s, ease;
+  -moz-transition: background-color, 0.3s, ease;
+  -ms-transition: background-color, 0.3s, ease;
+  -o-transition: background-color, 0.3s, ease;
+  transition: background-color, 0.3s, ease; }
+  .navigation-trigger:hover {
+    background-color: #333; }
+  .navigation-trigger:focus {
+    outline: none; }
+  .navigation-trigger > div {
+    margin: 0 auto;
+    width: 24px;
+    position: relative; }
+  .navigation-trigger span, .navigation-trigger span::before, .navigation-trigger span::after {
     position: absolute;
     display: inline-block;
     height: 3px;
     width: 24px;
-    background: #fff; }
-  .nav-trigger span {
+    background: #000; }
+  .navigation-trigger span {
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 0;
     margin-top: -2px;
     -webkit-transition: background 0.3s ease;
     -moz-transition: background 0.3s ease;
     -ms-transition: background 0.3s ease;
     -o-transition: background 0.3s ease;
     transition: background 0.3s ease; }
-  .nav-trigger span::before, .nav-trigger span::after {
+  .navigation-trigger span::before, .navigation-trigger span::after {
     content: '';
     right: 0;
     /* Force Hardware Acceleration in WebKit */
@@ -1571,22 +1564,22 @@ nav {
     -ms-transition: transform 0.3s ease;
     -o-transition: transform 0.3s ease;
     transition: transform 0.3s ease; }
-  .nav-trigger span::before {
+  .navigation-trigger span::before {
     top: -6px; }
-  .nav-trigger span::after {
+  .navigation-trigger span::after {
     top: 6px; }
-  .nav-trigger.nav-is-visible span {
-    background: rgba(255, 255, 255, 0); }
-  .nav-trigger.nav-is-visible span::before, .nav-trigger.nav-is-visible span::after {
+  .navigation-trigger.nav-is-visible span {
+    background: rgba(0, 0, 0, 0); }
+  .navigation-trigger.nav-is-visible span::before, .navigation-trigger.nav-is-visible span::after {
     /* keep visible other 2 lines */
-    background: white; }
-  .nav-trigger.nav-is-visible span::before {
+    background: black; }
+  .navigation-trigger.nav-is-visible span::before {
     -moz-transform: translateX(4px) translateY(-3px) rotate(45deg);
     -o-transform: translateX(4px) translateY(-3px) rotate(45deg);
     -ms-transform: translateX(4px) translateY(-3px) rotate(45deg);
     -webkit-transform: translateX(4px) translateY(-3px) rotate(45deg);
     transform: translateX(4px) translateY(-3px) rotate(45deg); }
-  .nav-trigger.nav-is-visible span::after {
+  .navigation-trigger.nav-is-visible span::after {
     -moz-transform: translateX(4px) translateY(2px) rotate(-45deg);
     -o-transform: translateX(4px) translateY(2px) rotate(-45deg);
     -ms-transform: translateX(4px) translateY(2px) rotate(-45deg);
