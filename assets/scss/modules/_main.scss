@@ -1,0 +1,10 @@
+main {
+	@media #{$small-only} {
+		display: none;
+	}
+	@media #{$medium-up} {
+		padding-left: 80px;
+		width: 100%;
+		height: 100%;
+	}
+}

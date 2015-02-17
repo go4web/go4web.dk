@@ -1,0 +1,17 @@
+.tiles {
+	position: relative;
+	width: 100%;
+}
+
+
+
+.tiles-row {
+	@include clearfix();
+	height: 50vh;
+	width: 100%;
+}
+
+.tile {
+	background: #ccc;
+	height: 100%;
+}
