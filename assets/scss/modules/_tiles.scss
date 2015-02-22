@@ -1,17 +1,47 @@
 .tiles {
 	position: relative;
 	width: 100%;
-}
-
-
-
-.tiles-row {
-	@include clearfix();
-	height: 50vh;
-	width: 100%;
-}
-
-.tile {
-	background: #ccc;
 	height: 100%;
+
+	@include clearfix();
+}
+
+@media #{$small-only} {
+
+
+
+}
+
+@media #{$medium-up} {
+
+
+	.tile {
+		position: absolute;
+
+		&.hero {
+			height: 100vh;
+			width: 66%;
+			left: 0;
+			top: 0;
+			background: #888;
+		}
+
+		&.right-top {
+			height: 50vh;
+			width: 34%;
+			right: 0;
+			top: 0;
+			background: #ccc;
+		}
+
+		&.right-bottom {
+			height: 50vh;
+			width: 34%;
+			right: 0;
+			bottom: 0;
+			background: #eee;
+		}
+
+	}
+
 }
